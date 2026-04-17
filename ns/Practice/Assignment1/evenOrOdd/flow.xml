@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <FLOW VERSION="3.0" CLEANUP="true">
+  <COMMENT></COMMENT>
 
   <!-- nodes -->
 
@@ -723,7 +724,8 @@
 
 <SEQUENCE TIMEOUT="" EXIT-ON="FAILURE" FORM="FINALLY">
   <COMMENT></COMMENT>
-</SEQUENCE>
+
+  <!-- nodes -->
 
 <INVOKE TIMEOUT="" SERVICE="pub.flow:clearPipeline" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
@@ -810,4 +812,5 @@
 </MAPSET>
 </MAP>
 </INVOKE>
+</SEQUENCE>
 </FLOW>
