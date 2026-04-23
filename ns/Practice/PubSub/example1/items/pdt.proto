@@ -1,5 +1,8 @@
-message Practice_PubSub_studentDetails {
-optional  string studentname = 1;
+message Practice_PubSub_example1_items {
+optional  string id = 1;
+optional  string name = 2;
+optional  string quantity = 3;
+optional  string price = 4;
 optional  pub_publish_envelope _env = 536870910;
 }
 message pub_publish_envelope {
