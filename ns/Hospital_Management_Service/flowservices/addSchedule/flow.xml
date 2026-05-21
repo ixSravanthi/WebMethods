@@ -691,7 +691,7 @@
 
   <!-- nodes -->
 
-<SEQUENCE NAME="%adate%>=%value% and %start%>%end%" TIMEOUT="" EXIT-ON="FAILURE">
+<SEQUENCE NAME="%adate%>=%value% and %start%&lt;%end%" TIMEOUT="" EXIT-ON="FAILURE">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
@@ -2234,7 +2234,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">Invalid date</value>
+  <value name="xml">Invalid date or time</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
     <value name="node_subtype">unknown</value>

@@ -299,6 +299,27 @@
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>
+
+<MAPINVOKE SERVICE="pub.string:toUpper" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/doctorId;1;0" TO="/inString;1;0">
+</MAPCOPY>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/value;1;0" TO="/doctorId;1;0">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="Hospital_Management_Service.adapters.conditions:doctorExists" VALIDATE-IN="$none" VALIDATE-OUT="$none">
@@ -670,7 +691,7 @@
 
   <!-- nodes -->
 
-<SEQUENCE NAME="%adate%>=%value% and %start%>%end%" TIMEOUT="" EXIT-ON="FAILURE">
+<SEQUENCE NAME="%adate%>=%value% and %start%&lt;%end%" TIMEOUT="" EXIT-ON="FAILURE">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
