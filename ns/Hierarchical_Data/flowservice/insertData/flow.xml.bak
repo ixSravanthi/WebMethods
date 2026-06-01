@@ -615,13 +615,13 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/EmployeeName;1;0" TO="/insertSkillsInput;2;0/EmployeeID;1;0">
-</MAPCOPY>
-
 <MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/Skills;2;0/SkillID;1;0" TO="/insertSkillsInput;2;0/SkillID;1;0">
 </MAPCOPY>
 
 <MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/Skills;2;0/SkillName;1;0" TO="/insertSkillsInput;2;0/SkillName;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/EmplooyeeID;1;0" TO="/insertSkillsInput;2;0/EmployeeID;1;0">
 </MAPCOPY>
 </MAP>
 </INVOKE>

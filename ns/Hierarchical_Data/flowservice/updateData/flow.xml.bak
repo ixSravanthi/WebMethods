@@ -15,11 +15,19 @@
 
   <!-- nodes -->
 
+<MAP MODE="INPUT">
+</MAP>
+
 <MAP MODE="OUTPUT">
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="Hierarchical_Data.adapters:insertDepartment" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<LOOP TIMEOUT="" IN-ARRAY="/input/Department">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<INVOKE TIMEOUT="" SERVICE="Hierarchical_Data.adapters:updateDepartment" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
@@ -32,7 +40,7 @@
     <value name="node_type">record</value>
     <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
-    <value name="field_name">insertDepartmentInput</value>
+    <value name="field_name">updateDepartmentInput</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
     <value name="nillable">true</value>
@@ -43,7 +51,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertDepartmentInput</value>
+        <value name="field_name">updateDepartmentInput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -68,7 +76,7 @@
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">DepartmentID</value>
+            <value name="field_name">DepartmentName</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -79,7 +87,7 @@
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">DepartmentName</value>
+            <value name="field_name">DepartmentID_1</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -153,6 +161,17 @@
         </array>
         <value name="modifiable">true</value>
       </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">$iteration</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
     </array>
     <value name="modifiable">true</value>
   </record>
@@ -161,10 +180,10 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/DepartmentID;1;0" TO="/insertDepartmentInput;2;0/DepartmentID;1;0">
+<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/DepartmentID;1;0" TO="/updateDepartmentInput;2;0/DepartmentID_1;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/DepartmentName;1;0" TO="/insertDepartmentInput;2;0/DepartmentName;1;0">
+<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/DepartmentName;1;0" TO="/updateDepartmentInput;2;0/DepartmentName;1;0">
 </MAPCOPY>
 </MAP>
 </INVOKE>
@@ -174,7 +193,7 @@
 
   <!-- nodes -->
 
-<INVOKE TIMEOUT="" SERVICE="Hierarchical_Data.adapters:insertEmployee" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="Hierarchical_Data.adapters:updateEmployee" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
@@ -187,7 +206,7 @@
     <value name="node_type">record</value>
     <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
-    <value name="field_name">insertEmployeeInput</value>
+    <value name="field_name">updateEmployeeInput</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
     <value name="nillable">true</value>
@@ -198,7 +217,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertEmployeeInput</value>
+        <value name="field_name">updateEmployeeInput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -218,17 +237,6 @@
             <array name="rec_fields" type="record" depth="1">
             </array>
             <value name="modifiable">true</value>
-          </record>
-          <record javaclass="com.wm.util.Values">
-            <value name="node_type">unknown</value>
-            <value name="node_subtype">unknown</value>
-            <value name="is_public">false</value>
-            <value name="field_name">EmployeeID</value>
-            <value name="field_type">string</value>
-            <value name="field_dim">0</value>
-            <value name="nillable">true</value>
-            <value name="form_qualified">false</value>
-            <value name="is_global">false</value>
           </record>
           <record javaclass="com.wm.util.Values">
             <value name="node_type">unknown</value>
@@ -256,7 +264,18 @@
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">DepartmentID</value>
+            <value name="field_name">EmployeeID_1</value>
+            <value name="field_type">string</value>
+            <value name="field_dim">0</value>
+            <value name="nillable">true</value>
+            <value name="form_qualified">false</value>
+            <value name="is_global">false</value>
+          </record>
+          <record javaclass="com.wm.util.Values">
+            <value name="node_type">unknown</value>
+            <value name="node_subtype">unknown</value>
+            <value name="is_public">false</value>
+            <value name="field_name">DepartmentID_2</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -300,7 +319,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertDepartmentInput</value>
+        <value name="field_name">updateDepartmentInput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -348,7 +367,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertDepartmentOutput</value>
+        <value name="field_name">updateDepartmentOutput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -377,16 +396,16 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/EmplooyeeID;1;0" TO="/insertEmployeeInput;2;0/EmployeeID;1;0">
+<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/EmployeeName;1;0" TO="/updateEmployeeInput;2;0/EmployeeName;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/EmployeeName;1;0" TO="/insertEmployeeInput;2;0/EmployeeName;1;0">
+<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/EmplooyeeID;1;0" TO="/updateEmployeeInput;2;0/EmployeeID_1;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/Salary;1;0" TO="/insertEmployeeInput;2;0/Salary;1;0">
+<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/Salary;1;0" TO="/updateEmployeeInput;2;0/Salary;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/DepartmentID;1;0" TO="/insertEmployeeInput;2;0/DepartmentID;1;0">
+<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/DepartmentID;1;0" TO="/updateEmployeeInput;2;0/DepartmentID_2;1;0">
 </MAPCOPY>
 </MAP>
 </INVOKE>
@@ -396,7 +415,7 @@
 
   <!-- nodes -->
 
-<INVOKE TIMEOUT="" SERVICE="Hierarchical_Data.adapters:insertSkills" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="Hierarchical_Data.adapters:updateSkills" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
@@ -409,7 +428,7 @@
     <value name="node_type">record</value>
     <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
-    <value name="field_name">insertSkillsInput</value>
+    <value name="field_name">updateSkillsInput</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
     <value name="nillable">true</value>
@@ -420,7 +439,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertSkillsInput</value>
+        <value name="field_name">updateSkillsInput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -445,17 +464,6 @@
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">SkillID</value>
-            <value name="field_type">string</value>
-            <value name="field_dim">0</value>
-            <value name="nillable">true</value>
-            <value name="form_qualified">false</value>
-            <value name="is_global">false</value>
-          </record>
-          <record javaclass="com.wm.util.Values">
-            <value name="node_type">unknown</value>
-            <value name="node_subtype">unknown</value>
-            <value name="is_public">false</value>
             <value name="field_name">SkillName</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
@@ -467,7 +475,18 @@
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">EmployeeID</value>
+            <value name="field_name">SkillID_1</value>
+            <value name="field_type">string</value>
+            <value name="field_dim">0</value>
+            <value name="nillable">true</value>
+            <value name="form_qualified">false</value>
+            <value name="is_global">false</value>
+          </record>
+          <record javaclass="com.wm.util.Values">
+            <value name="node_type">unknown</value>
+            <value name="node_subtype">unknown</value>
+            <value name="is_public">false</value>
+            <value name="field_name">EmployeeID_2</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -511,7 +530,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertEmployeeInput</value>
+        <value name="field_name">updateEmployeeInput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -525,7 +544,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertDepartmentInput</value>
+        <value name="field_name">updateDepartmentInput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -573,7 +592,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertDepartmentOutput</value>
+        <value name="field_name">updateDepartmentOutput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -587,7 +606,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertEmployeeOutput</value>
+        <value name="field_name">updateEmployeeOutput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -616,20 +635,26 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/Skills;2;0/SkillID;1;0" TO="/insertSkillsInput;2;0/SkillID;1;0">
+<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/Skills;2;0/SkillName;1;0" TO="/updateSkillsInput;2;0/SkillName;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/Skills;2;0/SkillName;1;0" TO="/insertSkillsInput;2;0/SkillName;1;0">
+<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/Skills;2;0/SkillID;1;0" TO="/updateSkillsInput;2;0/SkillID_1;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/EmplooyeeID;1;0" TO="/insertSkillsInput;2;0/EmployeeID;1;0">
+<MAPCOPY FROM="/input;4;0;Hierarchical_Data.docs:inputoutput/Department;2;0/Employees;2;0/EmplooyeeID;1;0" TO="/updateSkillsInput;2;0/EmployeeID_2;1;0">
 </MAPCOPY>
 </MAP>
 </INVOKE>
 </LOOP>
 </LOOP>
+</LOOP>
 
-<INVOKE TIMEOUT="" SERVICE="pub.art.transaction:commitTransaction" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<BRANCH TIMEOUT="" LABELEXPRESSIONS="true">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<INVOKE NAME="$default" TIMEOUT="" SERVICE="pub.art.transaction:commitTransaction" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
@@ -695,7 +720,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertSkillsInput</value>
+        <value name="field_name">updateSkillsInput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -709,7 +734,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertEmployeeInput</value>
+        <value name="field_name">updateEmployeeInput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -723,7 +748,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertDepartmentInput</value>
+        <value name="field_name">updateDepartmentInput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -782,7 +807,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertDepartmentOutput</value>
+        <value name="field_name">updateDepartmentOutput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -796,7 +821,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertEmployeeOutput</value>
+        <value name="field_name">updateEmployeeOutput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -810,7 +835,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertSkillsOutput</value>
+        <value name="field_name">updateSkillsOutput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -828,10 +853,11 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/startTransactionOutput;2;0/transactionName;1;0" TO="/commitTransactionInput;2;0/transactionName;1;0">
+<MAPCOPY FROM="/startTransactionOutput;2;0" TO="/commitTransactionInput;2;0">
 </MAPCOPY>
 </MAP>
 </INVOKE>
+</BRANCH>
 </SEQUENCE>
 
 <SEQUENCE TIMEOUT="" EXIT-ON="FAILURE" FORM="CATCH">
@@ -919,7 +945,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertSkillsInput</value>
+        <value name="field_name">updateSkillsInput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -933,7 +959,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertEmployeeInput</value>
+        <value name="field_name">updateEmployeeInput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -947,7 +973,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertDepartmentInput</value>
+        <value name="field_name">updateDepartmentInput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -1006,7 +1032,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertDepartmentOutput</value>
+        <value name="field_name">updateDepartmentOutput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -1020,7 +1046,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertEmployeeOutput</value>
+        <value name="field_name">updateEmployeeOutput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -1034,7 +1060,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">insertSkillsOutput</value>
+        <value name="field_name">updateSkillsOutput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -1052,7 +1078,7 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/startTransactionOutput;2;0/transactionName;1;0" TO="/rollbackTransactionInput;2;0/transactionName;1;0">
+<MAPCOPY FROM="/startTransactionOutput;2;0" TO="/rollbackTransactionInput;2;0">
 </MAPCOPY>
 </MAP>
 </INVOKE>
